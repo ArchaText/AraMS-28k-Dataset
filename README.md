@@ -127,21 +127,62 @@ Under RefLAM's alignment metric, a confidence score of **100** is a *provable gu
 
 ## Usage
 
-### Quick Start
+### Prerequisites
 
-```python
-from scripts.load_dataset import load_book
+- Python 3.8 or higher
+- Install required packages:
 
-records = load_book("annotations/book_03.jsonl")
-for r in records:
-    print(r["line_uid"], r["text"]["gt_raw"])
 ```
+bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 
-### Validation
-
-```bash
-python scripts/validate_dataset.py --root .
 ```
+### Download the Image Files and building the data 
+The dataset annotations are included in this repository, but the page images are stored separately.
+Download the image archive from [insert link here] and extract it so that the folder structure matches the paths used in the annotation files.
+
+For example, if the annotations reference images/book_03/book_03_page_001.jpg, your extracted folder should contain:
+images/
+├── book_03/
+│   ├── book_03_page_001.jpg
+│   └── ...
+├── book_05/
+│   └── ...
+└── ...
+Place the images/ folder in the root AraMS-28k-Dataset/images
+
+The script scripts/build_data.py reads the unified JSON annotation files (*_unified.json) and produces:
+
+-Cropped line images (.png)
+
+-Corresponding ground‑truth text files (.gt.txt)
+
+-Split manifests (training, validation, test)
+
+-Metadata and statistics
+
+Run it as follows:
+```
+python scripts/build_data.py \
+    --input_dir ./unified_books \
+    --images_root . \
+    --output_dir ./arman_kraken_dataset \
+    --split_cfg splits/split.json
+```
+Arguments:
+
+--input_dir : directory containing the *_unified.json files.
+
+--images_root : root folder where the images/ directory is located.
+
+--output_dir : where the output dataset will be written.
+
+--split_cfg : (optional) JSON file defining train/val/test splits.
+
+--exclude_margins : (optional) add this flag to skip margin lines.
+
 
 ## License
 
