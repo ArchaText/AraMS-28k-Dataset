@@ -141,7 +141,7 @@ pip install -r requirements.txt
 ```
 ### Download the Image Files and building the data 
 The dataset annotations are included in this repository, but the page images are stored separately.
-Download the image archive from [insert link here] and extract it so that the folder structure matches the paths used in the annotation files.
+Download the image archive from [[insert link here](https://huggingface.co/datasets/hamoudaGue/AraMS-28k/tree/main)] and extract it so that the folder structure matches the paths used in the annotation files.
 
 For example, if the annotations reference images/book_03/book_03_page_001.jpg, your extracted folder should contain:
 ```
