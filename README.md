@@ -144,6 +144,7 @@ The dataset annotations are included in this repository, but the page images are
 Download the image archive from [insert link here] and extract it so that the folder structure matches the paths used in the annotation files.
 
 For example, if the annotations reference images/book_03/book_03_page_001.jpg, your extracted folder should contain:
+```
 images/
 ├── book_03/
 │   ├── book_03_page_001.jpg
@@ -152,7 +153,7 @@ images/
 │   └── ...
 └── ...
 Place the images/ folder in the root AraMS-28k-Dataset/images
-
+```
 The script scripts/build_data.py reads the unified JSON annotation files (*_unified.json) and produces:
 
 -Cropped line images (.png)
