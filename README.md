@@ -173,6 +173,7 @@ python scripts/build_data.py \
     --split_cfg splits/split.json
 ```
 Arguments:
+```
 
 --input_dir : directory containing the *_unified.json files.
 
@@ -183,7 +184,7 @@ Arguments:
 --split_cfg : (optional) JSON file defining train/val/test splits.
 
 --exclude_margins : (optional) add this flag to skip margin lines.
-
+```
 
 ## License
 
