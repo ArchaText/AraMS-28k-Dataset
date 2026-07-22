@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/TODO/AraMS-28k/schema/line_record.schema.json",
+  "$id": "https://github.com/ArchaText/AraMS-28k-Dataset/blob/main/schema/line_record.schema.json",
   "title": "AraMS-28k Line Record",
   "description": "Schema for a single line annotation in the AraMS-28k historical Arabic manuscript dataset.",
   "type": "object",
