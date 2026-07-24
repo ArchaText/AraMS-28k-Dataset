@@ -45,6 +45,24 @@ annotation released for a historical Arabic manuscript corpus.
 | License | CC BY-NC-SA 4.0 |
 
 Full per-book statistics: paper Appendix A.
+## Script Diversity
+
+<p float="left">
+  <img src="assets/book_03__book_03_page_001_line019.png" width="32%" />
+  <img src="assets/book_17__book_17_page_180_line018.png" width="32%" />
+  <img src="assets/book_21__book_21_page_215_line002.png" width="32%" />
+</p>
+
+*Naskh, Ruq'ah, and Maghrebi hands sampled from the corpus.*
+
+## Segmentation & Insertion-Anchor Example
+
+
+Line-level segmentation (main-text vs. margin regions). Margin lines
+with a confident attachment point are further annotated with an
+insertion anchor — the main-text line they logically insert after.
+
+![Insertion anchor example](assets/insertion_anchor_example.jpg)
 
 ## Download
 
