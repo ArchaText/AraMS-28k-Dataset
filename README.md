@@ -54,7 +54,7 @@ Two release formats, matching the paper's Appendix C:
 |---|---|---|
 | **AraMS-28k** | full annotation release (images + geometry + raw/normalized text + anchors + review metadata) |  [**AraMS-28k**](https://huggingface.co/datasets/Archatext/AraMS-28k)
  |
-| **AraMS-28k-HTR** | recognition-ready release (cropped line images + `.gt.txt`, ready for Kraken/HTR pipelines) | [**AraMS-28k-HTR**](https://huggingface.co/datasets/Archatext/AraMS-28k-HTR)
+| **AraMS-28k-HTR** | recognition-ready release (cropped line images + `.gt.txt`, ready for Kraken/HTR pipelines) | [**AraMS-28k-HTR**](https://huggingface.co/datasets/Archatext/AraMS-28k-HTR) |
 
 
 ### Checksums
@@ -135,8 +135,3 @@ Released under **CC BY-NC-SA 4.0**. Reference transcriptions may carry
 independent copyright where derived from a modern critical edition —
 see `DATASHEET.md`.
 
-## Maintenance
-
-Corrections (mis-transcribed lines, incorrect anchors, segmentation
-errors) accepted via [GitHub Issues](../../issues), batched into
-versioned releases. See `CHANGELOG.md`.
