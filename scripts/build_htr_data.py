@@ -4,31 +4,29 @@ ArMan Unified → Kraken Dataset Builder
 Reads *_unified.json files (built by build_unified_books.py) and produces
 cropped line images + manifests for kraken fine-tuning.
 
-Unlike the original builder, this reads unified JSONs (GT + geometry merged)
-instead of separate ArMan_8K_dataset.json + all_pages_seg.json.
 
 Includes BOTH main and margin lines by default. Use --exclude_margins to
 skip margin lines.
 
 Usage:
-    python build_kraken_from_unified.py \
-        --input_dir ./unified_books \
+    python build_htr_data.py \
+        --input_dir ./annotations \
         --images_root . \
-        --output_dir ./arman_kraken_dataset \
+        --output_dir ./AraMS-28k-HTR \
         --split_cfg split.json
 
     # To exclude margin lines:
-    python build_kraken_from_unified.py \
-        --input_dir ./unified_books \
+    python build_htr_data.py \
+        --input_dir ./annotations  \
         --images_root . \
-        --output_dir ./arman_kraken_dataset \
+        --output_dir ./AraMS-28k-HTR \
         --split_cfg split.json \
         --exclude_margins
 
 Folder layout expected:
-    ./unified_books/book_03_unified.json
-    ./unified_books/book_05_unified.json
-    ...
+    ./annotations/book_03_unified.json
+   
+    
     ./images/book_03/book_03_page_001.jpg
     ./images/book_03/book_03_page_002.jpg
     ...
@@ -54,6 +52,7 @@ import re
 _TASHKIL = re.compile(r'[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED]')
 # Keep only Arabic letters (0621–063A, 0641–064A) and spaces; strip everything else
 _KEEP    = re.compile(r'[^\u0621-\u063A\u0641-\u064A ]')
+
 
 def clean_gt(text):
     text = _TASHKIL.sub('', text)   # strip tashkil first
