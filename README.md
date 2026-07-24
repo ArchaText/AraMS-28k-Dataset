@@ -14,8 +14,9 @@ margin lines) with bounding boxes, layout labels, and insertion anchors.
 This repository holds the **code** used to build and reproduce AraMS-28k
 (annotation schema, split definitions, the AraMS-28k-HTR build script,
 and documentation). **Data is not stored in this repository** — download
-it from Hugging Face (browsable + `load_dataset()`) or from this repo's
-[Releases](../../releases) page (zip archives, checksum-verified).
+it from Hugging Face  
+[**AraMS-28k**](https://huggingface.co/datasets/Archatext/AraMS-28k)
+[**AraMS-28k-HTR**](https://huggingface.co/datasets/Archatext/AraMS-28k-HTR)
 
 ---
 
@@ -51,8 +52,10 @@ Two release formats, matching the paper's Appendix C:
 
 | Release | What | Where |
 |---|---|---|
-| **AraMS-28k** | full annotation release (images + geometry + raw/normalized text + anchors + review metadata) | [HF Hub](https://huggingface.co/datasets/your-org/arams-28k) · [GitHub Release v1.0.0](../../releases/tag/v1.0.0) |
-| **AraMS-28k-HTR** | recognition-ready release (cropped line images + `.gt.txt`, ready for Kraken/HTR pipelines) | [HF Hub](https://huggingface.co/datasets/your-org/arams-28k-htr) · [GitHub Release v1.0.0](../../releases/tag/v1.0.0) |
+| **AraMS-28k** | full annotation release (images + geometry + raw/normalized text + anchors + review metadata) |  [**AraMS-28k**](https://huggingface.co/datasets/Archatext/AraMS-28k)
+ |
+| **AraMS-28k-HTR** | recognition-ready release (cropped line images + `.gt.txt`, ready for Kraken/HTR pipelines) | [**AraMS-28k-HTR**](https://huggingface.co/datasets/Archatext/AraMS-28k-HTR)
+
 
 ### Checksums
 
@@ -64,6 +67,8 @@ Two release formats, matching the paper's Appendix C:
 Verify any download:
 ```bash
 sha256sum -c SHA256SUMS.txt
+
+python scripts/verify_checksums.py
 ```
 
 ## Repository Structure
@@ -101,12 +106,12 @@ and paper Sec. 4 for the full field list.
 ## Building AraMS-28k-HTR from AraMS-28k
 
 ```bash
-pip install -r scripts/requirements.txt
+pip install -r requirements.txt
 
 python scripts/build_data.py \
-    --input_dir ./unified_books \
+    --input_dir ./annotations \
     --images_root . \
-    --output_dir ./arams_htr \
+    --output_dir ./AraMS-28k-HTR \
     --split_cfg splits/split.json
 ```
 
