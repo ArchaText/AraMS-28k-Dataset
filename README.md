@@ -50,7 +50,7 @@ Full per-book statistics: paper Appendix A.
 <p float="left">
   <img src="assets/book_03__book_03_page_001_line019.png" width="32%" />
   <img src="assets/book_17__book_17_page_180_line018.png" width="32%" />
-  <img src="assets/book_05__book_05_page_45_line007.png" width="32%" />
+  <img src="assets/book_05__book_05_page_045_line007.png" width="32%" />
 </p>
 
 *Naskh, Ruq'ah, and Maghrebi hands sampled from the corpus.*
