@@ -4,6 +4,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![Pages](https://img.shields.io/badge/pages-3%2C043-brightgreen.svg)]()
 [![Lines](https://img.shields.io/badge/lines-28%2C600-brightgreen.svg)]()
+[![Paper](https://img.shields.io/badge/paper-PDF-red.svg)](https://drive.google.com/file/d/1JCOFT-KE4PAJGVQYuXDnsQ1vsBNjUfdx/view?usp=sharing)
 
 AraMS-28k is a line-level dataset of historical Arabic manuscripts produced by the
 **RefLAM** (Reference-grounded Line Annotation for Manuscripts) pipeline. It comprises
