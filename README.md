@@ -93,9 +93,19 @@ python scripts/verify_checksums.py
 ## Repository Structure
 
 ```
+checkpoints/  — Pretrained & fine-tuned model weights (git-ignored)
+  └── hatformer/
+      ├── original/       — Initial checkpoints (hatformer-synthetic, hatformer-muharaf)
+      └── ours/           — Fine-tuned output checkpoints
+configs/      — Model configurations (e.g. HATFormer fine-tuning)
 schema/       — JSON Schema for the per-line annotation record
-splits/       — book-level train/val/test assignment
-scripts/      — build_data.py (AraMS-28k → AraMS-28k-HTR) and dependencies
+splits/       — book-level train/val/test assignment (splits.json)
+scripts/      — HTR data builder (build_htr_data.py), HATFormer baseline scripts, and utilities
+  ├── build_htr_data.py
+  ├── htr_builder/
+  └── models/
+      └── hatformer/
+          └── tokenizer/  — Tokenizer directory (requires tokenizer.json)
 docs/         — annotation guidelines, FAQ
 examples/     — notebook: load a record, draw its polygon/bbox on the page image
 ```
@@ -124,19 +134,50 @@ and paper Sec. 4 for the full field list.
 
 ## Building AraMS-28k-HTR from AraMS-28k
 
-```bash
-pip install -r requirements.txt
+After unzipping full annotation release [**AraMS-28k**](https://huggingface.co/datasets/Archatext/AraMS-28k), you will have a folder named AraMS-28k. This folder contains the raw dataset files, then use this script to build the HTR dataset from the raw dataset files to be ready for HTR training:
 
-python scripts/build_data.py \
-    --input_dir ./annotations \
-    --images_root . \
+```bash
+pip install -r requirements.txt 
+
+python scripts/build_htr_data.py \                                              
+    --input_dir ./AraMS-28k/annotations \
+    --images_root ./AraMS-28k/images \
     --output_dir ./AraMS-28k-HTR \
     --split_cfg splits/split.json
+
 ```
 
-Produces cropped `.png` line images + `.gt.txt` targets + a manifest,
+Produces cropped `.png` line images + `.gt.txt` targets + a manifest (`metadata.csv`),
 for both main and margin lines. See `docs/faq.md` for path-resolution
 notes if you hit missing-image warnings.
+
+## Model Fine-Tuning & Evaluation (HATFormer)
+
+This repository includes scripts to fine-tune and evaluate HATFormer on the AraMS-28k-HTR dataset.
+
+### Prerequisites & Setup
+
+Before running training or evaluation, ensure the required checkpoint weights and tokenizer file are placed in their respective locations (these paths are git-ignored):
+
+1. **Tokenizer**: Place `tokenizer.json` (Arabic BBPE tokenizer from Original HATFormer repository ) into:
+   ```
+   scripts/models/hatformer/tokenizer/tokenizer.json
+   ```
+2. **Pretrained Checkpoints**: Place the pretrained initial weights from original HATFormer repository into `checkpoints/hatformer/original/` :
+   ```
+   checkpoints/hatformer/original/hatformer-synthetic/
+   checkpoints/hatformer/original/hatformer-muharaf/
+   ```
+
+### Fine-Tuning
+```bash
+python scripts/models/hatformer/train_hatformer.py --experiment muharaf_ours
+```
+
+### Recognition Test / Inference
+```bash
+python scripts/models/hatformer/test_hatformer.py --image path/to/image.png --checkpoint checkpoints/hatformer/ours/best
+```
 
 ## Citation
 
