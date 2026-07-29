@@ -1,3 +1,6 @@
 images/
 /AraMS-28k-HTR/
 /AraMS-28k/
+checkpoints/
+scripts/models/hatformer/tokenizer/tokenizer.json
+test_recognizer/

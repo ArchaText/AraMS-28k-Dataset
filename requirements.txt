@@ -1,2 +1,6 @@
 opencv-python
 numpy
+torch
+pandas
+yaml
+transformers
