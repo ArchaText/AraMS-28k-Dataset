@@ -18,6 +18,7 @@ and documentation). **Data is not stored in this repository** — download
 it from Hugging Face  
 [**AraMS-28k**](https://huggingface.co/datasets/Archatext/AraMS-28k)
 [**AraMS-28k-HTR**](https://huggingface.co/datasets/Archatext/AraMS-28k-HTR)
+[**HATFormer Checkpoints**](https://huggingface.co/Archatext/hatformer-arams28k)
 
 ---
 
@@ -178,6 +179,18 @@ python scripts/models/hatformer/train_hatformer.py --experiment muharaf_ours
 ```bash
 python scripts/models/hatformer/test_hatformer.py --image path/to/image.png --checkpoint checkpoints/hatformer/ours/best
 ```
+
+### Direct Model Loading (Hugging Face)
+
+You can also load the fine-tuned model and tokenizer directly from Hugging Face:
+
+```python
+from transformers import VisionEncoderDecoderModel, PreTrainedTokenizerFast
+
+model = VisionEncoderDecoderModel.from_pretrained("Archatext/hatformer-arams28k")
+tokenizer = PreTrainedTokenizerFast.from_pretrained("Archatext/hatformer-arams28k")
+```
+
 
 ## Citation
 
