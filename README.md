@@ -194,13 +194,34 @@ tokenizer = PreTrainedTokenizerFast.from_pretrained("Archatext/hatformer-arams28
 
 ## Citation
 
+If you use **AraMS-28k** in your research, please cite:
+
 ```bibtex
-@article{arams28k,
-  title   = {AraMS-28k: The Largest Publicly Released Line-Level Dataset of Historical Arabic Manuscripts, with Margin and Insertion-Anchor Annotations},
-  author  = {TBD},
-  year    = {2026}
+@article{guechaoui2026arams28k,
+  title={AraMS-28k: The Largest Publicly Released Line-Level Dataset of Historical Arabic Manuscripts with Margin and Insertion-Anchor Annotations},
+  author={Guechaoui, Mohamed and Zellagui, Mohamed Diaa and Chaib, Souleyman and Dhelim, Sahraoui},
+  journal={arXiv preprint arXiv:2608.26921},
+  year={2026},
+  doi={10.48550/arXiv.2608.26921}
 }
 ```
+
+If you use **RefLAM** or its annotation pipeline, please also cite:
+
+```bibtex
+@article{guechaoui2026reflam,
+  title={RefLAM: A Reference-Grounded Line Annotation Pipeline for Historical Arabic Manuscripts},
+  author={Guechaoui, Mohamed and Zellagui, Mohamed Diaa and Chaib, Souleyman and Dhelim, Sahraoui},
+  journal={arXiv preprint arXiv:2608.25140},
+  year={2026},
+  doi={10.48550/arXiv.2608.25140}
+}
+```
+
+### Related papers
+
+- **AraMS-28k:** https://arxiv.org/abs/2608.26921
+- **RefLAM:** https://arxiv.org/abs/2608.25140
 
 ## License
 
